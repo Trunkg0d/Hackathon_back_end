@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :trees
       resources :tree_types
       resources :users
+      get "/area_trees/:id", to: "trees#area_trees"
     end
   end
 end

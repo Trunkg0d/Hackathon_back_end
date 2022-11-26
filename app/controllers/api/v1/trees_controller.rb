@@ -51,6 +51,19 @@ class Api::V1::TreesController < ApplicationController
   def destroy
   end
 
+  def area_trees
+    @area = Area.find_by(id: params[:id])
+    array = []
+    
+    @area.lands.each do |land|
+      array << land.trees
+    end
+
+    render json: {
+      Trees: array
+    }, status: :ok
+  end
+
   private
 
   def tree_params

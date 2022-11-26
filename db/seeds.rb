@@ -40,3 +40,18 @@ end
     limit: 100
   )
 end
+
+3.times do |n|
+  Land.create(
+    area_id: 2,
+    image: "https://www.baoquangbinh.vn/dataimages/201604/original/images593040_anh3.jpg",
+    limit: 100
+  )
+end
+
+Tree.create(user_id: 1, land_id: 1, tree_type_ids: [1,2])
+Tree.create(user_id: 1, land_id: 2, tree_type_ids: [1,2])
+
+Tree.create(user_id: 1, land_id: 3, tree_type_ids: [1,2])
+Tree.create(user_id: 1, land_id: 4, tree_type_ids: [1,2])
+Tree.create(user_id: 1, land_id: 5, tree_type_ids: [1,2])
