@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :index, :update, :destroy]
   before_action :check_owner, only: [:update, :destroy]
+  before_action :set_tree_count
 
   def show
     @user = User.find_by(id: params[:id])
@@ -68,4 +69,12 @@ class Api::V1::UsersController < ApplicationController
       head :forbidden
     end
   end
+
+  def set_tree_count
+    @user = User.find_by(id: params[:id])
+    tree_count = 0
+    tree_count = @user.trees.count
+    @user.update_attribute(:tree_count, tree_count)
+  end
+
 end

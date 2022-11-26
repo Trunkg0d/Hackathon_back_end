@@ -4,6 +4,7 @@ class CreateLands < ActiveRecord::Migration[7.0]
       t.string :image
       t.references :area
       t.integer :limit
+      t.integer :tree_count, default: 0
       t.timestamps
     end
   end

@@ -35,6 +35,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[7.0]
       t.string :phone
       t.integer :role
       t.string :address
+      t.integer :tree_count, default: 0
       
 
       ## Tokens

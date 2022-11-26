@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
     t.decimal "y"
     t.integer "limit"
     t.string "image"
+    t.integer "tree_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
     t.string "image"
     t.bigint "area_id"
     t.integer "limit"
+    t.integer "tree_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area_id"], name: "index_lands_on_area_id"
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
     t.string "phone"
     t.integer "role"
     t.string "address"
+    t.integer "tree_count", default: 0
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

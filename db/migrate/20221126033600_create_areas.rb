@@ -9,6 +9,7 @@ class CreateAreas < ActiveRecord::Migration[7.0]
       t.decimal :y
       t.integer :limit
       t.string :image
+      t.integer :tree_count, default: 0
 
       t.timestamps
     end
