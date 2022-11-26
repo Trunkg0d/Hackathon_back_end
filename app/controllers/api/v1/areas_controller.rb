@@ -1,5 +1,5 @@
 class Api::V1::AreasController < ApplicationController
-  before_action :set_tree_count
+  before_action :set_tree_count, only: [:show]
   
   def index
     @areas = Area.all 

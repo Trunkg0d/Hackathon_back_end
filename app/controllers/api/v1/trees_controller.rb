@@ -47,6 +47,13 @@ class Api::V1::TreesController < ApplicationController
       @user = @tree.user
       current_tree_count = @user.tree_count
       @user.update_attribute(:tree_count, current_tree_count + 1)
+
+      @area = @tree.land.area
+      current_tree_count = 0
+      @area.lands.each do |land|
+        current_tree_count += land.tree_count
+      end      
+      @area.update_attribute(:tree_count, current_tree_count)
     else 
         render json: {
           messages: "Create tree failed",
