@@ -36,13 +36,17 @@ class Api::V1::TreesController < ApplicationController
         messages: "Create tree successfully",
         data: {
           tree: @tree,
-          user: @user
+          user: @tree.user
         }
       }, status: :created
 
       @land = @tree.land
       current_tree_count = @land.tree_count
       @land.update_attribute(:tree_count, current_tree_count + 1)
+
+      @user = @tree.user
+      current_tree_count = @user.tree_count
+      @user.update_attribute(:tree_count, current_tree_count + 1)
     else 
         render json: {
           messages: "Create tree failed",

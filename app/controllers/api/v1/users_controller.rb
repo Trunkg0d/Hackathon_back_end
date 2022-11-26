@@ -69,6 +69,21 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def sort_by_trees
+    @users = User.all
+    if @users
+      @users.sort_by(&:tree_count)
+      render json: {
+        messages: "Sort by trees",
+        data: @users.reverse
+      }, status: :ok
+    else 
+      render json: {
+        messages: "Can not work"
+      }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def user_params
