@@ -97,6 +97,8 @@ GEM
       devise (> 3.5.2, < 5)
       rails (>= 4.2.0, < 7.1)
     erubi (1.11.0)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -207,6 +209,7 @@ DEPENDENCIES
   debug
   devise
   devise_token_auth
+  fast_jsonapi
   mini_magick
   pg (~> 1.1)
   pry-rails

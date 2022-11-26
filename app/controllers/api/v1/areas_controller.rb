@@ -38,6 +38,16 @@ class Api::V1::AreasController < ApplicationController
   def destroy
   end
 
+  def area_lands
+    @area = Area.find_by(id: params[:id])
+    if @area
+      @trees = @area.trees
+      render json: {
+        data: @trees
+      }, status: :ok
+    end
+  end
+
   private
 
   def area_params

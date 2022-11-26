@@ -1,6 +1,6 @@
 5.times do |n|
   User.create(
-    name: "Trunk Lee",
+    name: "Trunk #{n+1} Lee #{n}",
     email: "trung#{n}@gmail.com",
     phone: "123456",
     address: "HCM City",
@@ -102,19 +102,19 @@ end
   )
 end
 
-Tree.create(user_id: 1, land_id: 1, tree_type_id: 1)
-Tree.create(user_id: 2, land_id: 2, tree_type_id: 2)
+Tree.create(user_id: 1, land_id: 1, tree_type_id: 1, name_fake: "Cây sứa đỏ")
+Tree.create(user_id: 2, land_id: 2, tree_type_id: 2, name_fake: "Cây bạch đàn")
 
-Tree.create(user_id: 3, land_id: 3, tree_type_id: 3)
-Tree.create(user_id: 2, land_id: 4, tree_type_id: 0)
-Tree.create(user_id: 3, land_id: 5, tree_type_id: 3)
+Tree.create(user_id: 3, land_id: 3, tree_type_id: 3, name_fake: "Cây me đất")
+Tree.create(user_id: 2, land_id: 4, tree_type_id: 0, name_fake: "Cây bạch đàn")
+Tree.create(user_id: 3, land_id: 5, tree_type_id: 3, name_fake: "Cây hoa hồng")
 
-Tree.create(user_id: 4, land_id: 5, tree_type_id: 3)
-Tree.create(user_id: 5, land_id: 4, tree_type_id: 0)
-Tree.create(user_id: 3, land_id: 6, tree_type_id: 3)
+Tree.create(user_id: 4, land_id: 5, tree_type_id: 3, name_fake: "Cây bàng")
+Tree.create(user_id: 5, land_id: 4, tree_type_id: 0, name_fake: "Cây anh đào")
+Tree.create(user_id: 3, land_id: 6, tree_type_id: 3, name_fake: "Cây bạch đàn")
 
-Tree.create(user_id: 2, land_id: 8, tree_type_id: 3)
-Tree.create(user_id: 1, land_id: 4, tree_type_id: 0)
-Tree.create(user_id: 3, land_id: 6, tree_type_id: 3)
+Tree.create(user_id: 2, land_id: 8, tree_type_id: 3, name_fake: "Cây thông")
+Tree.create(user_id: 1, land_id: 4, tree_type_id: 0, name_fake: "Cây hồng")
+Tree.create(user_id: 3, land_id: 6, tree_type_id: 3, name_fake: "Cây phượng")
 
 

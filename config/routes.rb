@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get "/area_lands/:id", to: "lands#area_lands"
       get "/current", to: "users#current"
       get "/sort_by_trees", to: "users#sort_by_trees"
+      get "/area_lands", to: "areas#area_lands"
     end
   end
 end

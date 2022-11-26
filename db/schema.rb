@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
     t.bigint "land_id"
     t.bigint "tree_type_id"
     t.string "treeimg"
+    t.string "name_fake"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["land_id"], name: "index_trees_on_land_id"

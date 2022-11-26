@@ -59,7 +59,7 @@ class Api::V1::UsersController < ApplicationController
   def current
     if current_user 
       render json: {
-        data: current_user,
+        data:  UserSerializer.new(current_user).serializable_hash,
         trees: current_user.trees
       }, status: :ok
     else 
