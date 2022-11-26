@@ -1,8 +1,30 @@
 class Api::V1::TreesController < ApplicationController
   def index
+    @trees = Tree.all
+    if @trees
+      render json: {
+        messages: "Show trees",
+        data: @trees
+      }, status: :ok
+    else
+      render json: {
+        messages: "Can not show trees"
+      }, status: :unprocessable_entity
+    end
   end
 
   def show
+    @tree = Tree.find_by(id: params[:id])
+    if @tree
+      render json: {
+        messages: "Show tree",
+        data: @tree
+      }, status: :ok
+    else
+      render json: {
+        messages: "Can not show tree"
+      }, status: :unprocessable_entity
+    end
   end
 
   def create

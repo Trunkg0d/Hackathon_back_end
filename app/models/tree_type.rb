@@ -1,4 +1,4 @@
 class TreeType < ApplicationRecord
-  belongs_to :area 
-  belongs_to :tree
+  # belongs_to :area 
+  # belongs_to :tree
 end

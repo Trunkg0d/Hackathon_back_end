@@ -4,8 +4,8 @@ class CreateTreeTypes < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :image
       t.decimal :price
-      t.references :area
-      t.references :tree 
+      t.references :area, null: true
+      t.references :tree, null: true
       t.string :description
       t.timestamps
     end

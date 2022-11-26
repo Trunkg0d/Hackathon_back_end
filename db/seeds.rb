@@ -28,7 +28,7 @@ end
     x: 11.106144,
     y: 106.847815,
     limit: 100,
-    tree_type_ids: [1, 4],
+    tree_type_ids: [1, 3],
     image: "https://vnn-imgs-f.vgcloud.vn/2021/06/24/14/d1.jpg"
   )
 end
