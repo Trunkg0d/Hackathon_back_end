@@ -17,7 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
   create_table "areas", force: :cascade do |t|
     t.string "address"
     t.string "org_name"
-    t.decimal "area"
+    t.decimal "width"
+    t.decimal "length"
     t.decimal "x"
     t.decimal "y"
     t.integer "limit"
@@ -29,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
   create_table "lands", force: :cascade do |t|
     t.string "image"
     t.bigint "area_id"
+    t.integer "limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area_id"], name: "index_lands_on_area_id"
@@ -47,11 +49,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
   end
 
   create_table "tree_types", force: :cascade do |t|
+    t.string "name"
     t.string "image"
     t.decimal "price"
+    t.bigint "area_id"
+    t.bigint "tree_id"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_tree_types_on_area_id"
+    t.index ["tree_id"], name: "index_tree_types_on_tree_id"
   end
 
   create_table "trees", force: :cascade do |t|

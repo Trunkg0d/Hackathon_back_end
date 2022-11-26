@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :index]
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])k
     if @user
       render json: {
         data: @user
