@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :index]
+  before_action :authenticate_user!, only: [:show, :index, :update, :destroy]
   before_action :check_owner, only: [:update, :destroy]
 
   def show
@@ -44,6 +44,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    if @user
+      @user.destroy
+      render json: {
+        messages: "User deleted successfully"
+      }, status: :ok
+      head 204
+    end 
   end
 
   private
@@ -54,6 +62,10 @@ class Api::V1::UsersController < ApplicationController
 
   def check_owner
     @user = User.find_by(id: params[:id])
-    head :forbidden unless @user.id == current_user.id
+    if @user.id == current_user.id
+      return true
+    else
+      head :forbidden
+    end
   end
 end
