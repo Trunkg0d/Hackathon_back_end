@@ -86,4 +86,4 @@ production:
   <<: *default
   database: prepare_production
   username: prepare
-  password: <%= ENV["PREPARE_DATABASE_PASSWORD"] %>
+  # password: <%= ENV["PREPARE_DATABASE_PASSWORD"] %>
