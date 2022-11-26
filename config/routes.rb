@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get "/current", to: "users#current"
       get "/sort_by_trees", to: "users#sort_by_trees"
       get "/area_lands", to: "areas#area_lands"
+      get "/owner_trees", to: "users#list_own_trees"
     end
   end
 end

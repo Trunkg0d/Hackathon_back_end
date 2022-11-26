@@ -84,6 +84,20 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def list_own_trees
+    if current_user
+      @trees = current_user.trees
+      array = []
+      @trees.each do |tree|
+        array << "#{tree.name_fake}~#{tree.land.area.address}"
+      end
+
+      render json: {
+        data: array
+      }
+    end
+  end
+
   private
 
   def user_params
