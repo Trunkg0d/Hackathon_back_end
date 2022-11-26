@@ -39,6 +39,10 @@ class Api::V1::TreesController < ApplicationController
           user: @user
         }
       }, status: :created
+
+      @land = @tree.land
+      current_tree_count = @land.tree_count
+      @land.update_attribute(:tree_count, current_tree_count + 1)
     else 
         render json: {
           messages: "Create tree failed",
@@ -83,12 +87,5 @@ class Api::V1::TreesController < ApplicationController
 
   def tree_params
     params.require(:tree).permit(:user_id, :land_id, :tree_type_ids, :image)
-  end
-
-  def set_tree_land
-  end
-
-  def set_tree_area
-
   end
 end
