@@ -1,4 +1,6 @@
 class Api::V1::TreesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+
   def index
     @trees = Tree.all
     if @trees
@@ -81,5 +83,12 @@ class Api::V1::TreesController < ApplicationController
 
   def tree_params
     params.require(:tree).permit(:user_id, :land_id, :tree_type_ids, :image)
+  end
+
+  def set_tree_land
+  end
+
+  def set_tree_area
+
   end
 end

@@ -2,9 +2,31 @@ class Api::V1::LandsController < ApplicationController
   before_action :set_tree_count
   
   def index 
+    @lands = Land.all
+    if @lands
+      render json: {
+        messages: "Show all lands",
+        data: @lands
+      }, status: :ok
+    else 
+      render json: {
+        messages: "Can't show all lands",
+      }, status: :unprocessable_entity
+    end
   end
 
   def show
+    @land = Land.find_by(id: params[:id])
+    if @land
+      render json: {
+        messages: "Show land #{@land.id}",
+        data: @land
+      }, status: :ok
+    else 
+      render json: {
+        messages: "Can't show land",
+      }, status: :unprocessable_entity
+    end
   end
 
   def create

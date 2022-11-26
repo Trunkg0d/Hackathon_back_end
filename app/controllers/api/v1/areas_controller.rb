@@ -2,9 +2,31 @@ class Api::V1::AreasController < ApplicationController
   before_action :set_tree_count
   
   def index
+    @areas = Area.all 
+    if @areas
+      render json: {
+        messages: "Show all areas",
+        data: @areas
+      }, status: :ok
+    else  
+      render json: {
+        messages: "Can't show"
+      }, status: :unprocessable_entity
+    end
   end
 
   def show
+    @area = Area.find_by(id: params[:id])
+    if @area
+      render json: {
+        messages: "Show area #{@area.id}",
+        data: @area
+      }, status: :ok
+    else 
+      render json: {
+        messages: "Can't show area",
+      }, status: :unprocessable_entity
+    end
   end
 
   def create
@@ -29,7 +51,6 @@ class Api::V1::AreasController < ApplicationController
     @area.lands.each do |land|
       tree_count += land.tree_count
     end
-
     @area.update_attribute(:tree_count, tree_count)
   end
 end
