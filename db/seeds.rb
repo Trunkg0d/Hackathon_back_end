@@ -62,45 +62,55 @@ end
   )
 end
 
-5.times do |n|
-  Land.create(
-    area_id: 1,
-    landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a1land1.png')),
-    limit: 100
-  )
+Area.all.count.times do |n|
+  100.times do 
+    Land.create(
+      area_id: n+1,
+      landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a1land1.png')),
+      limit: 100
+    )
+  end
 end
 
-5.times do |n|
-  Land.create(
-    area_id: 2,
-    landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a1land2.png')),
-    limit: 100
-  )
-end
+# 5.times do |n|
+#   Land.create(
+#     area_id: 1,
+#     landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a1land1.png')),
+#     limit: 100
+#   )
+# end
 
-5.times do |n|
-  Land.create(
-    area_id: 3,
-    landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a1land3.png')),
-    limit: 100
-  )
-end
+# 5.times do |n|
+#   Land.create(
+#     area_id: 2,
+#     landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a1land2.png')),
+#     limit: 100
+#   )
+# end
 
-3.times do |n|
-  Land.create(
-    area_id: 4,
-    landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a2land3.png')),
-    limit: 100
-  )
-end
+# 5.times do |n|
+#   Land.create(
+#     area_id: 3,
+#     landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a1land3.png')),
+#     limit: 100
+#   )
+# end
 
-3.times do |n|
-  Land.create(
-    area_id: 5,
-    landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a2land1.png')),
-    limit: 100
-  )
-end
+# 3.times do |n|
+#   Land.create(
+#     area_id: 4,
+#     landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a2land3.png')),
+#     limit: 100
+#   )
+# end
+
+# 3.times do |n|
+#   Land.create(
+#     area_id: 5,
+#     landimg: File.open(File.join(Rails.root, 'app', 'assets','images', 'a2land1.png')),
+#     limit: 100
+#   )
+# end
 
 Tree.create(user_id: 1, land_id: 1, tree_type_id: 1, name_fake: "Cây sứa đỏ")
 Tree.create(user_id: 2, land_id: 2, tree_type_id: 2, name_fake: "Cây bạch đàn")
