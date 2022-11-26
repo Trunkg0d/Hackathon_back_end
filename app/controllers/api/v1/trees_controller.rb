@@ -64,6 +64,19 @@ class Api::V1::TreesController < ApplicationController
     }, status: :ok
   end
 
+  def land_trees
+    @land = Land.find_by(id: params[:id])
+    array = []
+    
+    @land.trees.each do |tree|
+      array << tree
+    end
+
+    render json: {
+      Trees: array
+    }, status: :ok
+  end
+
   private
 
   def tree_params
