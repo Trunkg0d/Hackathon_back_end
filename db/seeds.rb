@@ -6,7 +6,7 @@
     address: "HCM City",
     password: "123456",
     password_confirmation: "123456",
-    avatar: File.open(File.join(Rails.root, 'app', 'assets','images', 'user.webp'))
+    avatar: File.open(File.join(Rails.root, 'app', 'assets','images', 'avatar.jpg'))
   )
 end
 
