@@ -1,4 +1,5 @@
 class TreeType < ApplicationRecord
   # belongs_to :area 
-  # belongs_to :tree
+  has_many :trees
+  mount_uploader :typeimg, TypeimgUploader
 end

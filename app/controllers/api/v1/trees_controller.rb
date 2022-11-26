@@ -86,6 +86,6 @@ class Api::V1::TreesController < ApplicationController
   private
 
   def tree_params
-    params.require(:tree).permit(:user_id, :land_id, :tree_type_ids, :image)
+    params.require(:tree).permit(:user_id, :land_id, :tree_type_id, :treeimg)
   end
 end

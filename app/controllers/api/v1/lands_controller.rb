@@ -54,7 +54,7 @@ class Api::V1::LandsController < ApplicationController
   private
 
   def land_params
-    params.require(:land).permit(:image, :area_id, :limit)
+    params.require(:land).permit(:landimg, :area_id, :limit)
   end
 
   def set_tree_count

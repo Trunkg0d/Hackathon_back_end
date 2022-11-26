@@ -11,5 +11,4 @@ class Api::V1::TreeTypesController < ApplicationController
   def destroy
   end
 
-  
 end

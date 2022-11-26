@@ -22,14 +22,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
     t.decimal "x"
     t.decimal "y"
     t.integer "limit"
-    t.string "image"
+    t.string "areaimg"
     t.integer "tree_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lands", force: :cascade do |t|
-    t.string "image"
+    t.string "landimg"
     t.bigint "area_id"
     t.integer "limit"
     t.integer "tree_count", default: 0
@@ -52,24 +52,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033657) do
 
   create_table "tree_types", force: :cascade do |t|
     t.string "name"
-    t.string "image"
+    t.string "typeimg"
     t.decimal "price"
     t.bigint "area_id"
-    t.bigint "tree_id"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area_id"], name: "index_tree_types_on_area_id"
-    t.index ["tree_id"], name: "index_tree_types_on_tree_id"
   end
 
   create_table "trees", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "land_id"
-    t.string "image"
+    t.bigint "tree_type_id"
+    t.string "treeimg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["land_id"], name: "index_trees_on_land_id"
+    t.index ["tree_type_id"], name: "index_trees_on_tree_type_id"
     t.index ["user_id"], name: "index_trees_on_user_id"
   end
 

@@ -1,5 +1,6 @@
 class Tree < ApplicationRecord
   belongs_to :user 
   belongs_to :land
-  has_many :tree_types
+  belongs_to :tree_type
+  mount_uploader :treeimg, TreeimgUploader
 end
