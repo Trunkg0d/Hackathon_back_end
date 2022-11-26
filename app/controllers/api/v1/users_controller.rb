@@ -1,13 +1,14 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :index, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :index, :update, :destroy, :current]
   before_action :check_owner, only: [:update, :destroy]
-  before_action :set_tree_count
+  before_action :set_tree_count, only: [:show, :index]
 
   def show
     @user = User.find_by(id: params[:id])
     if @user
       render json: {
-        data: @user
+        data: @user,
+        trees: @user.trees
       }, status: :ok
     else
       render json: {
@@ -53,6 +54,19 @@ class Api::V1::UsersController < ApplicationController
       }, status: :ok
       head 204
     end 
+  end
+
+  def current
+    if current_user 
+      render json: {
+        data: current_user,
+        trees: current_user.trees
+      }, status: :ok
+    else 
+      render json: {
+        messages: "Not fount"
+      }, status: :unprocessable_entity
+    end
   end
 
   private

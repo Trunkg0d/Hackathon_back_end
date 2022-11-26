@@ -41,8 +41,7 @@ class Api::V1::AreasController < ApplicationController
   private
 
   def area_params
-    params.require(:area).permit(:org_name, :address, :width, :length,
-      :x, :y, :limit, :image, :land_ids, :tree_type_ids)
+    params.require(:area).permit(:org_name, :address, :width, :length, :x, :y, :limit, :areaimg, :land_ids, :tree_type_ids)
   end
 
   def set_tree_count

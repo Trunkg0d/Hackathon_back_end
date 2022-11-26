@@ -3,7 +3,8 @@ class CreateTrees < ActiveRecord::Migration[7.0]
     create_table :trees do |t|
       t.references :user
       t.references :land
-      t.string :image
+      t.references :tree_type
+      t.string :treeimg
       t.timestamps
     end
   end
